@@ -25,6 +25,12 @@ export default function Hero() {
             <p key={i}>✔ {s}</p>
           ))}
         </div>
+        
+        <div className="mt-6 font-mono text-sm space-y-2">
+          <a href="/resume" className="block hover:text-accent">
+            <span className="text-accent mr-1">$</span>cat resume.pdf
+          </a>
+        </div>
       </div>
     </section>
   );
