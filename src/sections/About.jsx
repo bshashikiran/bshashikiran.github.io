@@ -4,7 +4,7 @@ import { ABOUT } from "../constants/about";
 
 export default function About() {
   return (
-    <Container>
+    <Container id="about">
       <SectionTitle title="system_profile" />
 
       <ul className="text-gray-400 leading-7 space-y-2">
