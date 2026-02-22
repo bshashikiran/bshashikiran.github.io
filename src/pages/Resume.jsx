@@ -1,7 +1,21 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import { useEffect } from "react";
 
 export default function Resume() {
+
+  useEffect(() => {
+    window.gtag?.("event", "resume_view", {
+      page: "resume",
+    });
+  }, []);
+
+  const onResumeDownload = () => {
+    window.gtag?.("event", "resume_download", {
+      file: "resume.pdf",
+    });
+  }
+
   return (
     <Container>
       <SectionTitle title="cat resume.pdf" />
@@ -18,6 +32,7 @@ export default function Resume() {
         <a
           href="/resume.pdf"
           download="ShashiKiran_Resume.pdf"
+          onClick={onResumeDownload}
           className="font-mono text-sm border border-gray-800 px-4 py-2 rounded hover:border-accent hover:text-accent transition"
         >
           $ download resume.pdf

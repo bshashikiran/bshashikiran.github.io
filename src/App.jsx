@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import GoToTop from "./components/GoToTop";
 import Resume from "./pages/Resume";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />
