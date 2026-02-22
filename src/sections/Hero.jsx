@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { SITE } from "../constants/site";
 
 export default function Hero() {
-  
-  const openResume = () => {
+
+  const onOpenResumeClick = () => {
     window.gtag?.("event", "resume_open_click", {
       location: "hero_section",
     });
@@ -34,7 +34,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-6 font-mono text-sm space-y-2">
-          <a href="/resume" className="block hover:text-accent" onClick={openResume}>
+          <a href="/resume" className="block hover:text-accent" onClick={onOpenResumeClick}>
             <span className="text-accent mr-1">$</span>cat resume.pdf
           </a>
         </div>
