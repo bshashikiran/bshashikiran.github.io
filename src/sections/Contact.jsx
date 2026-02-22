@@ -17,6 +17,12 @@ export default function Contact() {
               href={s.url}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                window.gtag?.("event", s.gaLabel, {
+                  platform: s.name.toLowerCase(),
+                  url: s.url,
+                })
+              }
               className="flex items-center gap-2 border border-gray-800 px-4 py-2 rounded hover:border-accent transition"
             >
               <Icon className="text-accent" />

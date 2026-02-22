@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { SITE } from "../constants/site";
 
 export default function Hero() {
+
+  const onOpenResumeClick = () => {
+    window.gtag?.("event", "resume_open_click", {
+      location: "hero_section",
+    });
+  }
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-3xl bg-card border border-gray-800 p-6 rounded-xl">
@@ -25,9 +32,9 @@ export default function Hero() {
             <p key={i}>✔ {s}</p>
           ))}
         </div>
-        
+
         <div className="mt-6 font-mono text-sm space-y-2">
-          <a href="/resume" className="block hover:text-accent">
+          <a href="/resume" className="block hover:text-accent" onClick={onOpenResumeClick}>
             <span className="text-accent mr-1">$</span>cat resume.pdf
           </a>
         </div>
