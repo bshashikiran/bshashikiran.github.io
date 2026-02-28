@@ -10,25 +10,25 @@ export const SITE = {
     social: [
         {
             name: "Email",
-            gaLabel: "contact_click",
+            gaLabel: "email_click",
             url: "mailto:bolleddulashashikiran@gmail.com",
             icon: MdEmail,
         },
         {
             name: "LinkedIn",
-            gaLabel: "contact_click",
+            gaLabel: "linkedin_click",
             url: "https://linkedin.com/in/bshashikiran",
             icon: FaLinkedin,
         },
         {
             name: "GitHub",
-            gaLabel: "contact_click",
+            gaLabel: "github_click",
             url: "https://github.com/bshashikiran",
             icon: FaGithub,
         },
         {
             name: "LeetCode",
-            gaLabel: "contact_click",
+            gaLabel: "leetcode_click",
             url: "https://leetcode.com/u/bshashikiran",
             icon: SiLeetcode,
         },
