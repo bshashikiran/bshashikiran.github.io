@@ -4,7 +4,7 @@ import { EXPERIENCE } from "../constants/experience";
 
 export default function Experience() {
   return (
-    <Container>
+    <Container id="experience">
       <SectionTitle title="pwd" />
 
       {EXPERIENCE.map((exp) => (

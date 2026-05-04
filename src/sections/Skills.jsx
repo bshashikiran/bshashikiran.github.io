@@ -4,7 +4,7 @@ import { SKILLS } from "../constants/skills";
 
 export default function Skills() {
   return (
-    <Container>
+    <Container id="skills">
       <SectionTitle title="tech_stack" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">

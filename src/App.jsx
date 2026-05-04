@@ -7,12 +7,14 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import GoToTop from "./components/GoToTop";
+import SideNav from "./components/SideNav";
 import Resume from "./pages/Resume";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 
 function Home() {
   return (
     <>
+      <SideNav />
       <Hero />
       <About />
       <Skills />

@@ -4,7 +4,7 @@ import { SITE } from "../constants/site";
 
 export default function Contact() {
   return (
-    <Container>
+    <Container id="contact">
       <SectionTitle title="curl contact.me" />
 
       <div className="flex gap-4 flex-wrap">
