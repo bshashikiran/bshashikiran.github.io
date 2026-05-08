@@ -4,7 +4,7 @@ import { PROJECTS } from "../constants/projects";
 
 export default function Projects() {
   return (
-    <Container>
+    <Container id="projects">
       <SectionTitle title="ls ./projects" />
 
       <div className="grid md:grid-cols-2 gap-6">

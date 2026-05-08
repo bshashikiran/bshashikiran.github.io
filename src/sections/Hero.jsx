@@ -10,7 +10,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-3xl bg-card border border-gray-800 p-6 rounded-xl">
 
         <p className="text-accent text-sm">$ boot portfolio.sh</p>
