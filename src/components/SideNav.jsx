@@ -3,33 +3,49 @@ import { NAV } from "../constants/nav";
 
 export default function SideNav() {
   const [active, setActive] = useState(NAV[0].id);
+  const [subProgress, setSubProgress] = useState(0);
   const [open, setOpen] = useState(false);
   const closeTimer = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
       const offset = 120;
-
-      const scrollBottom = window.innerHeight + window.scrollY;
+      const scrollY = window.scrollY;
       const docHeight = document.documentElement.scrollHeight;
-      if (scrollBottom >= docHeight - 4) {
-        setActive(NAV[NAV.length - 1].id);
+      const viewportHeight = window.innerHeight;
+
+      const starts = NAV.map((s) => {
+        const el = document.getElementById(s.id);
+        if (!el) return null;
+        return el.getBoundingClientRect().top + scrollY - offset;
+      });
+
+      let activeIdx = 0;
+      for (let i = 0; i < NAV.length; i++) {
+        if (starts[i] === null) continue;
+        if (scrollY >= starts[i]) activeIdx = i;
+      }
+
+      if (scrollY + viewportHeight >= docHeight - 4) {
+        activeIdx = NAV.length - 1;
+        setActive(NAV[activeIdx].id);
+        setSubProgress(0);
         return;
       }
 
-      let current = NAV[0].id;
+      setActive(NAV[activeIdx].id);
 
-      for (const s of NAV) {
-        const el = document.getElementById(s.id);
-        if (!el) continue;
+      let sub = 0;
+      const start = starts[activeIdx];
+      const end =
+        activeIdx < NAV.length - 1 ? starts[activeIdx + 1] : null;
 
-        const top = el.getBoundingClientRect().top;
-        if (top - offset <= 0) {
-          current = s.id;
-        }
+      if (start !== null && end !== null && end > start) {
+        sub = (scrollY - start) / (end - start);
+        sub = Math.min(1, Math.max(0, sub));
       }
 
-      setActive(current);
+      setSubProgress(sub);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -62,6 +78,10 @@ export default function SideNav() {
     clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setOpen(false), 150);
   };
+
+  const activeIndex = Math.max(0, NAV.findIndex((s) => s.id === active));
+  const denom = Math.max(1, NAV.length - 1);
+  const progress = Math.min(1, (activeIndex + subProgress) / denom);
 
   return (
     <nav
@@ -111,6 +131,12 @@ export default function SideNav() {
         <span
           aria-hidden
           className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gray-800"
+        />
+
+        <span
+          aria-hidden
+          style={{ height: `${progress * 100}%` }}
+          className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-accent transition-[height] duration-100 ease-out"
         />
 
         {NAV.map((s) => {
