@@ -10,6 +10,7 @@ import GoToTop from "./components/GoToTop";
 import SideNav from "./components/SideNav";
 import Resume from "./pages/Resume";
 import AnalyticsTracker from "./components/AnalyticsTracker";
+import PaletteSelector from "./components/PaletteSelector";
 
 function Home() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AnalyticsTracker />
+      <PaletteSelector />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />

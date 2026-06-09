@@ -8,9 +8,9 @@ export default {
         mono: ["Consolas", "monospace"],
       },
       colors: {
-        bg: "#0b0f14",
-        card: "#111827",
-        accent: "#00ff9f",
+        bg: "var(--c-bg)",
+        card: "var(--c-card)",
+        accent: "var(--c-accent)",
       },
     },
   },

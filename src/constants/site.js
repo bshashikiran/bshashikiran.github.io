@@ -35,7 +35,7 @@ export const SITE = {
     ],
     heroStatus: [
         "Working as a SWE at Magicbricks",
-        "2.8+ years of experience",
+        "2.10+ years of experience",
         "Graduated from NIT Nagpur in 2023",
     ]
 };

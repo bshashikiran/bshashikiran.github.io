@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --c-bg: #0b0f14;
+  --c-card: #111827;
+  --c-accent: #00ff9f;
+}
+
 body {
   @apply bg-bg text-gray-200 font-mono antialiased;
 }
@@ -21,7 +27,7 @@ body::-webkit-scrollbar {
 }
 
 ::selection {
-  background: #00ff9f33;
+  background: color-mix(in srgb, var(--c-accent) 20%, transparent);
 }
 
 @keyframes vscodeBlink {
