@@ -12,7 +12,8 @@ import {
     SiGit,
     SiPostman,
     SiLinux,
-    SiIntellijidea
+    SiIntellijidea,
+    SiApachesolr
 } from "react-icons/si";
 
 import { FaJava } from "react-icons/fa";
@@ -29,15 +30,16 @@ export const SKILLS = [
             { name: "Hibernate", icon: SiHibernate, color: "#BCAE79" },
             { name: "REST APIs", icon: IoMdSettings, color: "var(--c-accent)" },
             { name: "Microservices", icon: GrServices, color: "var(--c-accent)" },
-            { name: "MySQL", icon: SiMysql, color: "#4479A1" },
         ],
     },
 
     {
-        category: "messaging",
+        category: "messaging & data",
         items: [
             { name: "Kafka", icon: SiApachekafka, color: "#e5e7eb" },
             { name: "Redis", icon: SiRedis, color: "#DC382D" },
+            { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+            { name: "Apache Solr", icon: SiApachesolr, color: "#F35C00" },
         ],
     },
 
