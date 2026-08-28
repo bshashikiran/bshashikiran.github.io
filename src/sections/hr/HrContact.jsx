@@ -28,7 +28,8 @@ export default function HrContact() {
           </p>
         </div>
 
-        <div className='flex flex-wrap items-center justify-center gap-3.5 pt-4'>
+        <div className='flex flex-col sm:flex-row items-center justify-center gap-4 pt-4'>
+          {/* Primary CTA Button */}
           <a
             href='mailto:bolleddulashashikiran@gmail.com'
             onClick={() =>
@@ -37,34 +38,41 @@ export default function HrContact() {
                 url: 'mailto:bolleddulashashikiran@gmail.com',
               })
             }
-            className='inline-flex items-center gap-2.5 bg-accent text-bg font-bold px-7 py-3.5 rounded-xl hover:opacity-95 transition shadow-lg shadow-accent/20 hover:scale-[1.02] text-sm'
+            aria-label='Send an Email'
+            title='Send an Email'
+            className='w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-bg font-bold px-7 py-3 rounded-xl hover:opacity-95 transition shadow-lg shadow-accent/20 hover:scale-[1.02] text-sm'
           >
             <HiOutlineMail className='text-xl' />
             <span>Send An Email</span>
             <HiOutlineArrowNarrowRight className='text-base' />
           </a>
 
-          {SITE.social.map((s) => {
-            const Icon = s.icon;
-            return (
-              <a
-                key={s.name}
-                href={s.url}
-                target='_blank'
-                rel='noreferrer'
-                onClick={() =>
-                  window.gtag?.('event', s.gaLabel, {
-                    platform: s.name.toLowerCase(),
-                    url: s.url,
-                  })
-                }
-                className='inline-flex items-center gap-2.5 bg-bg/80 border border-gray-800 hover:border-accent hover:text-accent px-5 py-3.5 rounded-xl text-sm font-semibold text-gray-200 transition-all duration-200 shadow-sm hover:-translate-y-0.5'
-              >
-                <Icon className='text-accent text-lg' />
-                <span>{s.name}</span>
-              </a>
-            );
-          })}
+          {/* Social Links Row (Below on mobile, inline on desktop) */}
+          <div className='flex items-center justify-center gap-3'>
+            {SITE.social.filter((s) => s.name.toLowerCase() !== 'email').map((s) => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label={s.name}
+                  title={s.name}
+                  onClick={() =>
+                    window.gtag?.('event', s.gaLabel, {
+                      platform: s.name.toLowerCase(),
+                      url: s.url,
+                    })
+                  }
+                  className='inline-flex items-center justify-center gap-2 bg-bg/80 border border-gray-800 hover:border-accent hover:text-accent p-3 sm:px-5 sm:py-3 rounded-xl text-sm font-semibold text-gray-200 transition-all duration-200 shadow-sm hover:-translate-y-0.5'
+                >
+                  <Icon className='text-accent text-lg shrink-0' />
+                  <span className='hidden sm:inline'>{s.name}</span>
+                </a>
+              );
+            })}
+          </div>
         </div>
       </motion.div>
     </section>

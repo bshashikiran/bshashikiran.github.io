@@ -35,7 +35,9 @@ export default function GoToTop() {
       onClick={scrollTop}
       aria-label="Back to top"
       title="Back to top"
-      className={`fixed bottom-6 right-6 transition-all duration-300 z-40 ${
+      className={`fixed right-6 transition-all duration-300 z-40 ${
+        isDev ? "bottom-6" : "bottom-20 md:bottom-6"
+      } ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       } ${
         isDev

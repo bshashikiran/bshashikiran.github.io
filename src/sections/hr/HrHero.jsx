@@ -93,11 +93,11 @@ export default function HrHero() {
 
           {/* CTAs and Social Links */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="flex items-center gap-3 w-full sm:w-auto justify-center">
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-center">
               <a
                 href="/resume"
                 onClick={onOpenResumeClick}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-accent text-bg font-bold px-7 py-3.5 rounded-xl hover:opacity-95 transition-all duration-200 shadow-lg shadow-accent/20 hover:scale-[1.02] text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-bg font-bold px-6 py-2.5 rounded-xl hover:opacity-90 transition-all duration-200 shadow-md shadow-accent/20 hover:scale-[1.02] active:scale-98 text-sm whitespace-nowrap"
               >
                 <FaFileAlt className="text-sm" />
                 <span>View Full Resume</span>
@@ -105,10 +105,10 @@ export default function HrHero() {
               <a
                 href="/resume.pdf"
                 download="ShashiKiran_Resume.pdf"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-card/80 hover:bg-card border border-gray-700 text-gray-200 font-semibold px-6 py-3.5 rounded-xl hover:border-accent hover:text-accent transition-all duration-200 text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-card/70 hover:bg-card border-2 border-gray-700/80 hover:border-accent text-gray-200 hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-98 text-sm whitespace-nowrap"
               >
-                <FaDownload className="text-xs" />
-                <span>PDF Download</span>
+                <FaDownload className="text-xs text-accent" />
+                <span>Download PDF</span>
               </a>
             </div>
 
