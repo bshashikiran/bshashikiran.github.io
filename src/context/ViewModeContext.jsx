@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { getInitialPalette, applyPalette } from '../components/PaletteSelector';
 
 const ViewModeContext = createContext({
   mode: 'recruiter', // 'recruiter' | 'dev'
@@ -37,6 +38,8 @@ export function ViewModeProvider({ children }) {
   useEffect(() => {
     document.body.classList.remove('mode-dev', 'mode-recruiter');
     document.body.classList.add(`mode-${mode}`);
+    const pal = getInitialPalette(mode);
+    applyPalette(pal);
   }, [mode]);
 
   const setMode = (newMode) => {

@@ -21,6 +21,38 @@
       gtag('config', 'G-9MVDQVBQM5');
     </script>
     
+    <!-- Pre-render theme initializer to prevent any color flash -->
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var viewParam = params.get('view');
+          var savedView = localStorage.getItem('portfolio.view_mode');
+          var mode = (viewParam === 'dev' || viewParam === 'recruiter') 
+            ? viewParam 
+            : (savedView === 'dev' || savedView === 'recruiter') 
+              ? savedView 
+              : 'recruiter';
+
+          var isDev = mode === 'dev';
+          var devSaved = localStorage.getItem('portfolio.palette.dev');
+          var hrSaved = localStorage.getItem('portfolio.palette.hr');
+
+          var paletteMap = {
+            'terminal-green': { bg: '#0b0f14', card: '#111827', accent: '#00ff9f' },
+            'tokyo-night': { bg: '#1a1b26', card: '#24283b', accent: '#7aa2f7' }
+          };
+
+          var targetId = isDev ? (devSaved || 'terminal-green') : (hrSaved || 'tokyo-night');
+          var pal = paletteMap[targetId] || (isDev ? paletteMap['terminal-green'] : paletteMap['tokyo-night']);
+
+          var root = document.documentElement;
+          root.style.setProperty('--c-bg', pal.bg);
+          root.style.setProperty('--c-card', pal.card);
+          root.style.setProperty('--c-accent', pal.accent);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

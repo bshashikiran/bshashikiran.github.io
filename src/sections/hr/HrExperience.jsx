@@ -85,7 +85,7 @@ export default function HrExperience() {
                   Key Engineering Highlights & Systems Built
                 </p>
                 <span className='text-[11px] text-gray-400 font-mono hidden sm:inline'>
-                  Click system to view details &rarr;
+                  Click to explore project architecture &rarr;
                 </span>
               </div>
 
