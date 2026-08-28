@@ -23,7 +23,7 @@ import { GrServices } from "react-icons/gr";
 
 export const SKILLS = [
     {
-        category: "backend",
+        category: "backend & architecture",
         items: [
             { name: "Java", icon: FaJava, color: "#f89820" },
             { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
@@ -34,32 +34,28 @@ export const SKILLS = [
     },
 
     {
-        category: "messaging & data",
+        category: "data & distributed systems",
         items: [
             { name: "Kafka", icon: SiApachekafka, color: "#e5e7eb" },
             { name: "Redis", icon: SiRedis, color: "#DC382D" },
             { name: "MySQL", icon: SiMysql, color: "#4479A1" },
             { name: "Apache Solr", icon: SiApachesolr, color: "#F35C00" },
+            { name: "Amazon S3", icon: SiAmazons3, color: "#569A31" },
         ],
     },
 
     {
-        category: "frontend",
+        category: "frontend development",
         items: [
             { name: "React", icon: SiReact, color: "#61DAFB" },
             { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-            { name: "HTML", icon: SiHtml5, color: "#E34F26" },
-            { name: "CSS", icon: SiCss3, color: "#1572B6" },
+            { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+            { name: "CSS3", icon: SiCss3, color: "#1572B6" },
         ],
     },
 
     {
-        category: "cloud",
-        items: [{ name: "Amazon S3", icon: SiAmazons3, color: "#569A31" }],
-    },
-
-    {
-        category: "tools",
+        category: "developer tools & devops",
         items: [
             { name: "Git", icon: SiGit, color: "#F05032" },
             { name: "Postman", icon: SiPostman, color: "#FF6C37" },
