@@ -9,7 +9,15 @@
 }
 
 body {
-  @apply bg-bg text-gray-200 font-mono antialiased;
+  @apply bg-bg text-gray-200 antialiased transition-colors duration-300;
+}
+
+body.mode-dev {
+  @apply font-mono;
+}
+
+body.mode-recruiter {
+  @apply font-sans;
 }
 
 html {
@@ -20,10 +28,6 @@ html {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
-}
-
-* {
-  scroll-behavior: smooth;
 }
 
 ::selection {

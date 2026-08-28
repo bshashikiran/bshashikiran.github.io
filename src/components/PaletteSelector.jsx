@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PALETTES, DEFAULT_PALETTE_ID } from "../constants/palettes";
+import { useViewMode } from "../context/ViewModeContext";
 
 const STORAGE_KEY = "portfolio.palette";
 
@@ -10,11 +11,18 @@ function applyPalette(palette) {
   root.style.setProperty("--c-accent", palette.colors.accent);
 }
 
-export function getInitialPalette() {
+export function getInitialPalette(mode = "recruiter") {
   const stored =
     typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+
+  if (stored) {
+    const found = PALETTES.find((p) => p.id === stored);
+    if (found) return found;
+  }
+
+  const defaultId = mode === "dev" ? DEFAULT_PALETTE_ID : "tokyo-night";
   return (
-    PALETTES.find((p) => p.id === stored) ||
+    PALETTES.find((p) => p.id === defaultId) ||
     PALETTES.find((p) => p.id === DEFAULT_PALETTE_ID) ||
     PALETTES[0]
   );
@@ -43,9 +51,22 @@ function PaletteSwatches({ palette, size = "w-3 h-3" }) {
 }
 
 export default function PaletteSelector() {
-  const [active, setActive] = useState(() => getInitialPalette());
+  const { mode } = useViewMode();
+  const [active, setActive] = useState(() => getInitialPalette(mode));
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+
+  // When mode toggles, adjust default palette if user hasn't chosen a custom one in localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) {
+      const defaultId = mode === "dev" ? DEFAULT_PALETTE_ID : "tokyo-night";
+      const target = PALETTES.find((p) => p.id === defaultId);
+      if (target) {
+        setActive(target);
+      }
+    }
+  }, [mode]);
 
   useEffect(() => {
     applyPalette(active);

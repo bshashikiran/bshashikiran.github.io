@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NAV } from "../constants/nav";
+import { scrollToElement } from "../utils/scroll";
 
 export default function SideNav() {
   const [active, setActive] = useState(NAV[0].id);
@@ -57,10 +58,7 @@ export default function SideNav() {
   const onNavClick = (e, id) => {
     e.preventDefault();
 
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollToElement(id, 80, 750);
 
     window.gtag?.("event", "nav_click", {
       section: id,
@@ -112,13 +110,12 @@ export default function SideNav() {
                   href={`#${s.id}`}
                   onClick={(e) => onNavClick(e, s.id)}
                   aria-current={isActive ? "true" : undefined}
-                  className={`block px-4 py-2 font-mono text-sm transition-colors ${
+                  className={`block px-4 py-2 text-sm transition-colors capitalize ${
                     isActive
-                      ? "text-accent"
+                      ? "text-accent font-semibold"
                       : "text-gray-400 hover:text-accent"
                   }`}
                 >
-                  <span className="text-gray-600 mr-2">$</span>
                   {s.label}
                 </a>
               </li>
