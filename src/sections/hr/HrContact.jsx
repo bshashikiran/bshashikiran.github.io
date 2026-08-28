@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import HrSectionHeader from '../../components/hr/HrSectionHeader';
 import { SITE } from '../../constants/site';
 import { HiOutlineMail, HiOutlineArrowNarrowRight } from 'react-icons/hi';
@@ -7,18 +6,11 @@ export default function HrContact() {
   return (
     <section id='contact' className='py-20 px-6 max-w-4xl mx-auto'>
       <HrSectionHeader
-        badge="Get In Touch"
         title="Let's Connect"
         subtitle="I am open to discussions about software engineering roles, system architecture, and impactful collaborations."
       />
 
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className='p-8 sm:p-12 rounded-3xl bg-card/60 backdrop-blur-md border border-gray-800/80 hover:border-gray-700 transition shadow-2xl text-center space-y-6'
-      >
+      <div className='p-8 sm:p-12 rounded-3xl bg-card/60 backdrop-blur-md border border-gray-800/80 hover:border-gray-700 transition shadow-2xl text-center space-y-6'>
         <div className='max-w-xl mx-auto'>
           <h3 className='text-2xl sm:text-3xl font-extrabold text-white tracking-tight'>
             Looking for a skilled backend engineer?
@@ -74,7 +66,7 @@ export default function HrContact() {
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
