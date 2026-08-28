@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import HrSectionHeader from '../../components/hr/HrSectionHeader';
 import { EXPERIENCE } from '../../constants/experience';
 import { PROJECTS } from '../../constants/projects';
@@ -45,13 +44,9 @@ export default function HrExperience() {
       />
 
       <div className='space-y-8'>
-        {EXPERIENCE.map((exp, idx) => (
-          <motion.div
+        {EXPERIENCE.map((exp) => (
+          <div
             key={exp.company}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
             className='p-6 sm:p-9 rounded-3xl bg-card/60 backdrop-blur-xl border-2 border-gray-700/80 hover:border-accent/80 transition-all duration-300 shadow-2xl hover:shadow-accent/10'
           >
             {/* Header: Role, Company, and Period */}
@@ -105,7 +100,7 @@ export default function HrExperience() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

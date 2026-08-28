@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import HrSectionHeader from '../../components/hr/HrSectionHeader';
 import { PROJECTS } from '../../constants/projects';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
@@ -7,20 +6,15 @@ export default function HrProjects() {
   return (
     <section id='projects' className='py-20 px-6 max-w-6xl mx-auto'>
       <HrSectionHeader
-        badge='Portfolio'
         title='Featured Projects'
         subtitle='High-impact engineering systems, automated pipelines, and intelligent tools.'
       />
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-7'>
-        {PROJECTS.map((p, idx) => (
-          <motion.div
+        {PROJECTS.map((p) => (
+          <div
             key={p.id}
             id={p.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: idx * 0.08 }}
             className='scroll-mt-24 group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-card/60 backdrop-blur-md border-2 border-gray-700/80 hover:border-accent/80 transition-all duration-300 shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-accent/10 focus:border-accent'
           >
             <div>
@@ -63,7 +57,7 @@ export default function HrProjects() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
