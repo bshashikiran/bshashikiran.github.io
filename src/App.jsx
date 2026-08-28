@@ -1,41 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Skills from "./sections/Skills";
-import Experience from "./sections/Experience";
-import Projects from "./sections/Projects";
-import Contact from "./sections/Contact";
-import GoToTop from "./components/GoToTop";
-import SideNav from "./components/SideNav";
+import DevLayout from "./pages/DevLayout";
+import HrLayout from "./pages/HrLayout";
 import Resume from "./pages/Resume";
 import AnalyticsTracker from "./components/AnalyticsTracker";
-import PaletteSelector from "./components/PaletteSelector";
+import { ViewModeProvider, useViewMode } from "./context/ViewModeContext";
 
-function Home() {
-  return (
-    <>
-      <SideNav />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-      <GoToTop />
-    </>
-  );
+function MainContent() {
+  const { mode } = useViewMode();
+  return mode === "dev" ? <DevLayout /> : <HrLayout />;
 }
 
 export default function App() {
   return (
     <BrowserRouter>
-      <AnalyticsTracker />
-      <PaletteSelector />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
-      </Routes>
+      <ViewModeProvider>
+        <AnalyticsTracker />
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </ViewModeProvider>
     </BrowserRouter>
   );
 }

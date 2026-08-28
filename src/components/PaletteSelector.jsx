@@ -1,20 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { PALETTES, DEFAULT_PALETTE_ID } from "../constants/palettes";
+import { useViewMode } from "../context/ViewModeContext";
 
-const STORAGE_KEY = "portfolio.palette";
+const DEV_STORAGE_KEY = "portfolio.palette.dev";
+const HR_STORAGE_KEY = "portfolio.palette.hr";
 
-function applyPalette(palette) {
+function getStorageKey(mode) {
+  return mode === "dev" ? DEV_STORAGE_KEY : HR_STORAGE_KEY;
+}
+
+export function applyPalette(palette) {
+  if (!palette || !palette.colors) return;
   const root = document.documentElement;
   root.style.setProperty("--c-bg", palette.colors.bg);
   root.style.setProperty("--c-card", palette.colors.card);
   root.style.setProperty("--c-accent", palette.colors.accent);
 }
 
-export function getInitialPalette() {
+export function getInitialPalette(mode = "recruiter") {
+  const key = getStorageKey(mode);
   const stored =
-    typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+    typeof window !== "undefined" ? localStorage.getItem(key) : null;
+
+  if (stored) {
+    const found = PALETTES.find((p) => p.id === stored);
+    if (found) return found;
+  }
+
+  const defaultId = mode === "dev" ? DEFAULT_PALETTE_ID : "tokyo-night";
   return (
-    PALETTES.find((p) => p.id === stored) ||
+    PALETTES.find((p) => p.id === defaultId) ||
     PALETTES.find((p) => p.id === DEFAULT_PALETTE_ID) ||
     PALETTES[0]
   );
@@ -43,14 +58,22 @@ function PaletteSwatches({ palette, size = "w-3 h-3" }) {
 }
 
 export default function PaletteSelector() {
-  const [active, setActive] = useState(() => getInitialPalette());
+  const { mode } = useViewMode();
+  const [active, setActive] = useState(() => getInitialPalette(mode));
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
+  // When view mode switches or loads, immediately apply that mode's palette
+  useEffect(() => {
+    const pal = getInitialPalette(mode);
+    setActive(pal);
+    applyPalette(pal);
+  }, [mode]);
+
   useEffect(() => {
     applyPalette(active);
-    localStorage.setItem(STORAGE_KEY, active.id);
-  }, [active]);
+    localStorage.setItem(getStorageKey(mode), active.id);
+  }, [active, mode]);
 
   useEffect(() => {
     const onDocClick = (e) => {

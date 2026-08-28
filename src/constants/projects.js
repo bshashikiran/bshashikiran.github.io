@@ -1,5 +1,64 @@
 export const PROJECTS = [
     {
+        id: "magicspace3d",
+        name: "MagicSpace 3D",
+        description:
+            "Automated GenAI-powered 2D-to-3D floor plan transformation pipeline delivering immersive 3D architectural visuals across core discovery pages.",
+        tech: [
+            "Java",
+            "Spring Batch",
+            "Kafka",
+            "Apache Solr",
+            "MySQL",
+            "Amazon S3"
+        ],
+        highlights: [
+            "Engineered a high-volume Spring Batch pipeline to extract 2D floor plan assets from DB and publish them to Kafka topics for AI processing.",
+            "Built asynchronous, event-driven workflows to ingest AI-generated 3D floor plans and room metadata back into DB and Amazon S3.",
+            "Integrated metadata synchronization with Apache Solr to index and serve 3D assets on core high-traffic pages (SRP, LDP, PDP, and Project Galleries).",
+            "Streamlined data flow between backend services and Data Science pipelines, eliminating manual asset processing."
+        ],
+    },
+    {
+        id: "magicql",
+        name: "MagicQL",
+        description:
+            "Internal Natural Language-to-SQL platform enabling cross-functional teams to query high-scale ClickHouse analytical data using plain English prompts.",
+        tech: [
+            "Java",
+            "Spring Boot",
+            "ClickHouse",
+            "React.js",
+            "REST APIs",
+            "GenAI / LLMs"
+        ],
+        highlights: [
+            "Built a full-stack text-to-SQL internal productivity tool using React.js and Spring Boot to translate natural language prompts into executable ClickHouse queries.",
+            "Integrated analytical query execution against ClickHouse DB, enabling business, product, and database teams to perform self-service data extraction.",
+            "Designed RESTful APIs with schema-aware context mapping to enhance query generation accuracy and prevent invalid SQL syntax.",
+            "Streamlined cross-team data access workflows, significantly reducing dependency on DBA and analytics teams for ad-hoc queries."
+        ],
+    },
+    {
+        id: "propAvatarAi",
+        name: "PropAvatar AI",
+        description:
+            "Interactive AI Avatar platform generating digital twins of builders and agents from short video & voice samples to deliver automated property walk-throughs and real-time interactive query resolution.",
+        tech: [
+            "Java",
+            "Spring Boot",
+            "Cartesia AI",
+            "REST APIs",
+            "React.js",
+            "WebSockets / Real-time Streaming"
+        ],
+        highlights: [
+            "Engineered end-to-end backend workflows to generate interactive digital avatars from 30-second silent selfie videos and recorded voice samples.",
+            "Developed services supporting dual-mode avatar capabilities: automated narration for pre-defined project highlights and real-time interactive conversational query resolution.",
+            "Built robust API interfaces and media delivery pipelines to seamlessly stream avatar responses to end users on web and mobile clients."
+        ],
+    },
+    {
         id: "magicDesignAi",
         name: "MagicDesign AI",
         description: "Scalable AI-Driven Interior Design Platform that generates personalized home interior concepts from customer leads.",
@@ -13,7 +72,7 @@ export const PROJECTS = [
         ],
 
         highlights: [
-            "Integrated third-party SEGMIND APIs to automate AI image generation workflows, reducing manual design effort.",
+            "Architected in-house AI generation services integrating OpenAI APIs to produce personalized interior design concepts based on user-selected reference styles.",
             "Built backend workflows to transform lead data into personalized AI-generated interior design concepts.",
             "Designed scalable media storage and retrieval using Amazon S3 for generated design assets.",
             "Enabled asynchronous processing for AI generation pipelines to improve system responsiveness."

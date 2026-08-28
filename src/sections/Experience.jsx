@@ -8,15 +8,14 @@ export default function Experience() {
       <SectionTitle title="pwd" />
 
       {EXPERIENCE.map((exp) => (
-        <div key={exp.company} className="space-y-3">
+        <div key={exp.company} className="space-y-3 font-mono">
           <p className="text-accent">
             {exp.company} — {exp.role}
           </p>
-
           <p className="text-sm text-gray-500">{exp.period}</p>
 
           <ul className="text-gray-400 text-sm space-y-1">
-            {exp.points.map((p, i) => (
+            {(exp.projects || exp.points || []).map((p, i) => (
               <li key={i}>• {p}</li>
             ))}
           </ul>

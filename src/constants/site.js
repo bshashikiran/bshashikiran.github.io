@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
+import { getExperienceString } from "../utils/experience";
 
 export const SITE = {
     name: "Shashi Kiran",
@@ -35,7 +36,7 @@ export const SITE = {
     ],
     heroStatus: [
         "Working as a SWE at Magicbricks",
-        "2.10+ years of experience",
+        getExperienceString(),
         "Graduated from NIT Nagpur in 2023",
     ]
 };

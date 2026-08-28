@@ -3,13 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --c-bg: #0b0f14;
-  --c-card: #111827;
-  --c-accent: #00ff9f;
+  --c-bg: #1a1b26;
+  --c-card: #24283b;
+  --c-accent: #7aa2f7;
 }
 
 body {
-  @apply bg-bg text-gray-200 font-mono antialiased;
+  @apply bg-bg text-gray-200 antialiased;
+}
+
+body.mode-dev {
+  @apply font-mono;
+}
+
+body.mode-recruiter {
+  @apply font-sans;
 }
 
 html {
@@ -20,10 +28,6 @@ html {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
-}
-
-* {
-  scroll-behavior: smooth;
 }
 
 ::selection {
