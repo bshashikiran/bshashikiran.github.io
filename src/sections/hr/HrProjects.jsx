@@ -21,7 +21,7 @@ export default function HrProjects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: idx * 0.08 }}
-            className='scroll-mt-24 group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-card/60 backdrop-blur-md border border-gray-800/80 hover:border-accent/50 transition-all duration-300 shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-accent/5 focus:border-accent'
+            className='scroll-mt-24 group flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-card/60 backdrop-blur-md border-2 border-gray-700/80 hover:border-accent/80 transition-all duration-300 shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-accent/10 focus:border-accent'
           >
             <div>
               {/* Title & Badge */}

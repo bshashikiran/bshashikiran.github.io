@@ -18,7 +18,7 @@ export default function HrSkills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.35, delay: idx * 0.06 }}
-            className='p-5 sm:p-6 rounded-2xl bg-card/60 backdrop-blur-md border border-gray-800/80 hover:border-accent/40 transition-all duration-300 shadow-xl'
+            className='p-5 sm:p-6 rounded-2xl bg-card/60 backdrop-blur-md border-2 border-gray-700/80 hover:border-accent/80 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-accent/10'
           >
             {/* Category Header */}
             <div className='flex items-center gap-2 mb-3.5 pb-2.5 border-b border-gray-800/80'>

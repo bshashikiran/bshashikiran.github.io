@@ -52,14 +52,12 @@ export default function HrExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className='p-6 sm:p-9 rounded-3xl bg-card/60 backdrop-blur-xl border border-gray-800/80 hover:border-gray-700/80 transition-all duration-300 shadow-2xl'
+            className='p-6 sm:p-9 rounded-3xl bg-card/60 backdrop-blur-xl border-2 border-gray-700/80 hover:border-accent/80 transition-all duration-300 shadow-2xl hover:shadow-accent/10'
           >
             {/* Header: Role, Company, and Period */}
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-gray-800/80 pb-6 mb-7'>
-              <div className='flex items-center gap-4'>
-                <div className='w-12 h-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent shrink-0 shadow-inner'>
-                  <HiOutlineBriefcase className='text-2xl' />
-                </div>
+              <div className='flex items-center gap-3.5'>
+                <HiOutlineBriefcase className='text-3xl text-accent shrink-0' />
                 <div>
                   <h3 className='text-2xl sm:text-3xl font-extrabold text-white tracking-tight'>
                     {exp.role}
